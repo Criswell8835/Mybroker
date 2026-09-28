@@ -39,11 +39,11 @@ export function TradingStrategies() {
   const current = strategies.find((item) => item.id === active) ?? strategies[0];
 
   return (
-    <section className="px-5 pb-8 sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[28px] border border-white/10 bg-[#090909]">
+    <section className="px-5 pb-10 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-2xl border border-white/[0.07] bg-[#090909]">
         <div className="grid lg:grid-cols-[280px_1fr]">
           <Reveal className="border-b border-white/8 p-6 lg:border-b-0 lg:border-r lg:p-8">
-            <p className="text-[11px] tracking-[0.22em] text-zinc-500">
+            <p className="text-[11px] tracking-[0.24em] text-zinc-500">
               AI STRATEGIES
             </p>
             <div className="mt-6 flex gap-2 overflow-x-auto lg:flex-col lg:gap-1">
@@ -53,7 +53,7 @@ export function TradingStrategies() {
                   type="button"
                   onClick={() => setActive(strategy.id)}
                   className={cn(
-                    "whitespace-nowrap rounded-xl px-4 py-3 text-left text-sm transition-colors",
+                    "whitespace-nowrap rounded-md px-4 py-3 text-left text-[13px] transition-colors",
                     strategy.id === active
                       ? "bg-white/[0.06] text-white"
                       : "text-zinc-500 hover:text-zinc-300",
@@ -68,7 +68,7 @@ export function TradingStrategies() {
           <Reveal delay={0.08} className="p-6 sm:p-8">
             <div className="flex flex-col justify-between gap-8 md:flex-row">
               <div className="max-w-md">
-                <h3 className="text-2xl font-medium tracking-tight text-white">
+                <h3 className="text-[22px] font-normal tracking-[-0.03em] text-white">
                   {current.name}
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-400">
@@ -85,7 +85,7 @@ export function TradingStrategies() {
                 {current.bars.map((bar, index) => (
                   <div
                     key={`${current.id}-${index}`}
-                    className="flex-1 rounded-t-sm bg-gradient-to-t from-crimson/20 to-white/80"
+                    className="flex-1 rounded-t-[1px] bg-white/70"
                     style={{ height: `${bar}px` }}
                   />
                 ))}

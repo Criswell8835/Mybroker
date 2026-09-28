@@ -23,7 +23,7 @@ export function FloatingMetric({
   return (
     <motion.div
       className={cn(
-        "glass-strong pointer-events-none absolute z-20 min-w-[168px] rounded-2xl px-4 py-3.5",
+        "glass-strong pointer-events-none absolute z-20 min-w-[168px] rounded-xl px-4 py-3.5",
         !reduce && floatClassName,
         className,
       )}
@@ -31,10 +31,10 @@ export function FloatingMetric({
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
     >
-      <p className="text-[10px] font-medium tracking-[0.18em] text-zinc-500">
+      <p className="text-[10px] tracking-[0.18em] text-zinc-500">
         {label}
       </p>
-      <p className="mt-1.5 text-[15px] font-medium tracking-tight text-white">
+      <p className="mt-1.5 text-[14px] font-normal tracking-[-0.02em] text-white">
         {value}
       </p>
       {detail ? (

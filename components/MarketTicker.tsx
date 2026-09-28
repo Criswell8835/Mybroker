@@ -8,7 +8,7 @@ export function MarketTicker() {
   return (
     <section
       aria-label="Demonstration market ticker"
-      className="relative border-y border-white/8 bg-[#070707]"
+      className="relative border-y border-white/[0.06] bg-[#070707]"
     >
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#070707] to-transparent sm:w-28" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#070707] to-transparent sm:w-28" />

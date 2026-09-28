@@ -37,38 +37,38 @@ export function Navbar() {
       <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
         <div
           className={cn(
-            "mx-auto flex h-[58px] max-w-[1180px] items-center justify-between rounded-2xl px-3.5 transition-all duration-500 sm:px-5",
+            "mx-auto flex h-14 max-w-[1180px] items-center justify-between rounded-xl px-4 transition-all duration-500 sm:px-5",
             scrolled
-              ? "border border-white/10 bg-black/72 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-2xl"
-              : "border border-white/[0.06] bg-black/28 backdrop-blur-xl",
+              ? "border border-white/[0.08] bg-black/78 shadow-[0_10px_36px_rgba(0,0,0,0.4)] backdrop-blur-2xl"
+              : "border border-white/[0.05] bg-black/25 backdrop-blur-xl",
           )}
         >
           <a href="#top" className="relative z-10 shrink-0 text-white">
             <Logo />
           </a>
 
-          <nav className="hidden items-center gap-7 lg:flex">
+          <nav className="hidden items-center gap-8 lg:flex">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[13px] text-zinc-400 transition-colors duration-300 hover:text-white"
+                className="text-[12px] tracking-[0.04em] text-zinc-400 transition-colors duration-300 hover:text-white"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <div className="hidden items-center gap-2.5 lg:flex">
+          <div className="hidden items-center gap-1 lg:flex">
             <a
               href="#cta"
-              className="px-3.5 py-2 text-[13px] text-zinc-300 transition-colors hover:text-white"
+              className="px-3.5 py-2 text-[12px] tracking-[0.04em] text-zinc-400 transition-colors hover:text-white"
             >
               Log In
             </a>
             <a
               href="#cta"
-              className="inline-flex items-center rounded-full bg-crimson px-4 py-2 text-[13px] font-medium text-white transition-colors hover:bg-crimson-soft"
+              className="ml-1 inline-flex h-8 items-center rounded-md bg-crimson px-3.5 text-[12px] font-medium tracking-[0.02em] text-white transition-colors hover:bg-crimson-soft"
             >
               Get Started
             </a>
@@ -76,7 +76,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white lg:hidden"
+            className="relative z-10 flex h-9 w-9 items-center justify-center rounded-md border border-white/10 bg-white/[0.03] text-white lg:hidden"
             onClick={() => setOpen((value) => !value)}
             aria-label={open ? "Close menu" : "Open menu"}
           >
@@ -103,7 +103,7 @@ export function Navbar() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.05 * index, duration: 0.4 }}
-                    className="border-b border-white/5 py-4 text-3xl font-medium tracking-tight text-white"
+                  className="border-b border-white/5 py-4 text-[28px] font-normal tracking-[-0.03em] text-white"
                   >
                     {link.label}
                   </motion.a>
@@ -113,14 +113,14 @@ export function Navbar() {
                 <a
                   href="#cta"
                   onClick={() => setOpen(false)}
-                  className="flex h-12 items-center justify-center rounded-full border border-white/12 text-sm text-white"
+                  className="btn-secondary w-full"
                 >
                   Log In
                 </a>
                 <a
                   href="#cta"
                   onClick={() => setOpen(false)}
-                  className="flex h-12 items-center justify-center rounded-full bg-crimson text-sm font-medium text-white"
+                  className="btn-primary w-full"
                 >
                   Get Started
                 </a>

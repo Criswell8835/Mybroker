@@ -141,6 +141,29 @@ export function generateCandles(
   return candles;
 }
 
+export function generateEquity(
+  count: number,
+  end: number,
+  changePct: number,
+  seed: number,
+): number[] {
+  const random = mulberry32(seed);
+  const start = end / (1 + changePct / 100);
+  const points: number[] = [];
+  let value = start;
+
+  for (let i = 0; i < count; i += 1) {
+    const progress = i / Math.max(count - 1, 1);
+    const drift = (end - start) / count;
+    const wave = Math.sin(progress * Math.PI * 1.7) * end * 0.006;
+    value = Math.max(end * 0.88, value + drift + wave + (random() - 0.48) * end * 0.0045);
+    points.push(value);
+  }
+
+  points[points.length - 1] = end;
+  return points;
+}
+
 export const candleSets: Record<string, Candle[]> = {
   btc: generateCandles(56, 104284.2, 2.84, 104284),
   eth: generateCandles(56, 3482.16, 1.42, 3482),

@@ -66,11 +66,11 @@ export function CandlestickChart({
       >
         <defs>
           <linearGradient id={`${idPrefix}-area`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#C8102E" stopOpacity="0.16" />
+            <stop offset="0%" stopColor="#C8102E" stopOpacity="0.08" />
             <stop offset="100%" stopColor="#C8102E" stopOpacity="0" />
           </linearGradient>
           <filter id={`${idPrefix}-glow`} x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="2.4" result="blur" />
+            <feGaussianBlur stdDeviation="1.4" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -149,8 +149,8 @@ export function CandlestickChart({
           <path
             d={layout.line}
             fill="none"
-            stroke="#C8102E"
-            strokeWidth="1.35"
+            stroke="#A10E26"
+            strokeWidth="1.15"
             filter={`url(#${idPrefix}-glow)`}
             className="chart-line"
             pathLength={1}

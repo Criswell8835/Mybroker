@@ -25,54 +25,54 @@ export function AITradingSection() {
   return (
     <section
       id="ai-trading"
-      className="relative scroll-mt-24 px-5 py-24 sm:px-8 lg:px-12 lg:py-32"
+      className="relative scroll-mt-24 px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
     >
-      <div className="mx-auto grid max-w-[1200px] items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <div className="mx-auto grid max-w-[1200px] items-center gap-14 lg:grid-cols-[0.86fr_1.14fr] lg:gap-20">
         <Reveal>
-          <p className="text-[11px] font-medium tracking-[0.26em] text-zinc-500">
+          <p className="text-[11px] tracking-[0.28em] text-zinc-500">
             AI CRYPTO TRADING
           </p>
-          <h2 className="mt-4 max-w-md text-[36px] font-medium leading-[1.05] tracking-[-0.035em] text-white sm:text-[48px]">
+          <h2 className="mt-5 max-w-md text-[34px] font-normal leading-[1.08] tracking-[-0.04em] text-white sm:text-[46px]">
             Intelligence behind every trade.
           </h2>
-          <p className="mt-5 max-w-md text-[15px] leading-7 text-zinc-400">
+          <p className="mt-6 max-w-md text-[15px] leading-7 text-zinc-400">
             Analyze market conditions, identify trends and explore AI-assisted
             strategies through a powerful crypto trading interface.
           </p>
           <a
             href="#features"
-            className="mt-8 inline-flex items-center gap-2 text-sm text-white transition-colors hover:text-zinc-300"
+            className="mt-9 inline-flex items-center gap-2 text-[13px] tracking-[0.02em] text-white transition-colors hover:text-zinc-300"
           >
             Explore AI Trading
-            <ArrowRight size={16} />
+            <ArrowRight size={14} />
           </a>
         </Reveal>
 
-        <Reveal delay={0.12}>
-          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#080808] shadow-[0_30px_90px_rgba(0,0,0,0.4)]">
-            <div className="pointer-events-none absolute -right-16 top-0 h-48 w-48 rounded-full bg-[rgba(200,16,46,0.12)] blur-3xl" />
-            <div className="flex items-center justify-between border-b border-white/8 px-5 py-4">
+        <Reveal delay={0.1}>
+          <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080808] shadow-[0_28px_80px_rgba(0,0,0,0.38)]">
+            <div className="flex items-end justify-between border-b border-white/[0.06] px-5 py-4">
               <div>
-                <p className="text-[12px] tracking-[0.16em] text-zinc-500">
+                <p className="text-[11px] tracking-[0.18em] text-zinc-500">
                   ETH/USD DESK
                 </p>
-                <p className="mt-1 text-lg font-medium text-white">
+                <p className="mt-1.5 text-[22px] font-normal tracking-[-0.03em] text-white">
                   {formatPrice(3482.16)}
                 </p>
               </div>
               <DemoBadge />
             </div>
 
-            <div className="h-[230px] px-2 pt-3 sm:h-[260px]">
-              <CandlestickChart candles={candleSets.eth} height={240} idPrefix="ai-desk" />
+            <div className="h-[220px] px-2 pt-2 sm:h-[252px]">
+              <CandlestickChart
+                candles={candleSets.eth}
+                height={240}
+                idPrefix="ai-desk"
+              />
             </div>
 
-            <div className="grid grid-cols-2 gap-px border-t border-white/8 bg-white/[0.04] sm:grid-cols-5">
+            <div className="grid grid-cols-2 gap-px border-t border-white/[0.06] bg-white/[0.04] sm:grid-cols-5">
               {indicators.map((item) => (
-                <div
-                  key={item.label}
-                  className="bg-[#080808] px-3 py-3 sm:px-3 sm:py-4"
-                >
+                <div key={item.label} className="bg-[#080808] px-3 py-3.5">
                   <p className="text-[10px] tracking-[0.14em] text-zinc-500">
                     {item.label}
                   </p>

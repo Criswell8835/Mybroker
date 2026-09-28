@@ -5,10 +5,10 @@ import { copyTradingSteps } from "@/lib/traders";
 
 export function CopyTradingSteps() {
   return (
-    <section id="copy-flow" className="scroll-mt-24 px-5 pb-16 sm:px-8 lg:px-12">
+    <section id="copy-flow" className="scroll-mt-24 px-5 pb-20 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
-          <p className="text-[11px] font-medium tracking-[0.26em] text-zinc-500">
+          <p className="text-[11px] tracking-[0.28em] text-zinc-500">
             HOW COPY TRADING WORKS
           </p>
         </Reveal>
@@ -26,7 +26,7 @@ export function CopyTradingSteps() {
                   <p className="font-mono text-[12px] tracking-[0.18em] text-crimson">
                     {step.number}
                   </p>
-                  <h3 className="mt-3 text-[17px] font-medium tracking-tight text-white">
+                  <h3 className="mt-3 text-[16px] font-normal tracking-[-0.02em] text-white">
                     {step.title}
                   </h3>
                   <p className="mt-2 max-w-xs text-[13px] leading-6 text-zinc-500">

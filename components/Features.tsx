@@ -51,7 +51,7 @@ const features = [
       "Charts, levels and session context presented with the restraint of a trading desk.",
     className: "md:col-span-2",
     extra: (
-      <div className="mt-8 h-[42px] w-full bg-[linear-gradient(to_right,transparent,rgba(200,16,46,0.45),rgba(255,255,255,0.35),transparent)] opacity-70" />
+      <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
     ),
   },
 ];
@@ -60,14 +60,14 @@ export function Features() {
   return (
     <section
       id="features"
-      className="scroll-mt-24 px-5 py-24 sm:px-8 lg:px-12 lg:py-32"
+      className="scroll-mt-24 px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
     >
       <div className="mx-auto max-w-[1200px]">
         <Reveal className="max-w-2xl">
-          <p className="text-[11px] font-medium tracking-[0.26em] text-zinc-500">
+          <p className="text-[11px] tracking-[0.28em] text-zinc-500">
             FEATURES
           </p>
-          <h2 className="mt-4 text-[36px] font-medium leading-[1.05] tracking-[-0.035em] text-white sm:text-[48px]">
+          <h2 className="mt-5 text-[34px] font-normal leading-[1.08] tracking-[-0.04em] text-white sm:text-[46px]">
             Everything you need to navigate crypto markets.
           </h2>
         </Reveal>
@@ -87,7 +87,7 @@ export function Features() {
                       ? "#copy-trading"
                       : "#ai-trading"
                   }
-                  className="group flex h-full flex-col rounded-[24px] border border-white/8 bg-white/[0.025] p-6 transition-colors duration-300 hover:border-white/16 hover:bg-white/[0.04] sm:p-7"
+                  className="group flex h-full flex-col rounded-xl border border-white/[0.07] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/12 hover:bg-white/[0.035] sm:p-8"
                 >
                   <div className="flex items-start justify-between">
                     <Icon className="text-zinc-300" size={18} />
@@ -96,7 +96,7 @@ export function Features() {
                       className="text-zinc-600 transition-colors group-hover:text-white"
                     />
                   </div>
-                  <h3 className="mt-8 text-lg font-medium tracking-tight text-white">
+                  <h3 className="mt-8 text-[17px] font-normal tracking-[-0.02em] text-white">
                     {feature.title}
                   </h3>
                   <p className="mt-3 max-w-sm text-[14px] leading-6 text-zinc-400">

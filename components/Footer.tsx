@@ -38,7 +38,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/8 px-5 py-14 sm:px-8 lg:px-12">
+    <footer className="border-t border-white/[0.06] px-5 py-16 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-[1200px]">
         <div className="flex flex-col justify-between gap-12 lg:flex-row">
           <div className="max-w-xs">
