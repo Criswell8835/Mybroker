@@ -1,4 +1,3 @@
-"use client";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -29,7 +28,8 @@ export function FloatingActivityNotification() {
   const [session, setSession] = useState(0);
 
   useEffect(() => {
-    setReady(true);
+    const frame = window.requestAnimationFrame(() => setReady(true));
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {

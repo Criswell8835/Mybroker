@@ -1,6 +1,10 @@
 @import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
 
 :root {
+  --font-geist-sans: "Geist Variable", "Segoe UI", sans-serif;
+  --font-geist-mono: "Geist Mono Variable", ui-monospace, monospace;
   --background: #050505;
   --foreground: #f4f4f5;
   --muted: #8a8a8f;

@@ -1,4 +1,3 @@
-"use client";
 
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/cn";

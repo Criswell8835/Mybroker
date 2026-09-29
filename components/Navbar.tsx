@@ -1,8 +1,7 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Logo } from "@/components/Logo";
 import { APP_ROUTE } from "@/lib/brand";
 import { cn } from "@/lib/cn";
@@ -20,7 +19,10 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 18);
+    const onScroll = () => {
+      const next = window.scrollY > 18;
+      setScrolled((current) => (current === next ? current : next));
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -67,9 +69,9 @@ export function Navbar() {
             >
               Log In
             </a>
-            <a href={APP_ROUTE} className="btn-primary btn-compact ml-1">
+            <Link to={APP_ROUTE} className="btn-primary btn-compact ml-1">
               Start Trading
-            </a>
+            </Link>
           </div>
 
           <button
@@ -115,13 +117,13 @@ export function Navbar() {
                 >
                   Log In
                 </a>
-                <a
-                  href={APP_ROUTE}
+                <Link
+                  to={APP_ROUTE}
                   onClick={() => setOpen(false)}
                   className="btn-primary w-full"
                 >
                   Start Trading
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

@@ -1,4 +1,3 @@
-"use client";
 
 import { useMemo } from "react";
 import { cn } from "@/lib/cn";
@@ -74,7 +73,27 @@ export function AllocationRing({
 }) {
   const radius = 38;
   const circumference = 2 * Math.PI * radius;
-  let offset = 0;
+  const arcs = segments.reduce<
+    Array<{
+      name: string;
+      tone: string;
+      dash: string;
+      current: number;
+      span: number;
+    }>
+  >((items, segment) => {
+    const current = items.reduce((sum, item) => sum + item.span, 0);
+    const span = (segment.pct / 100) * circumference;
+    const length = span * 0.92;
+    items.push({
+      name: segment.name,
+      tone: segment.tone,
+      dash: `${length} ${circumference - length}`,
+      current,
+      span,
+    });
+    return items;
+  }, []);
 
   return (
     <svg viewBox="0 0 100 100" className="h-[132px] w-[132px]">
@@ -86,12 +105,7 @@ export function AllocationRing({
         stroke="rgba(255,255,255,0.06)"
         strokeWidth="8"
       />
-      {segments.map((segment) => {
-        const length = (segment.pct / 100) * circumference * 0.92;
-        const dash = `${length} ${circumference - length}`;
-        const current = offset;
-        offset += (segment.pct / 100) * circumference;
-        return (
+      {arcs.map((segment) => (
           <circle
             key={segment.name}
             cx="50"
@@ -100,13 +114,12 @@ export function AllocationRing({
             fill="none"
             stroke={segment.tone}
             strokeWidth="8"
-            strokeDasharray={dash}
-            strokeDashoffset={-current}
+            strokeDasharray={segment.dash}
+            strokeDashoffset={-segment.current}
             strokeLinecap="butt"
             transform="rotate(-90 50 50)"
           />
-        );
-      })}
+      ))}
     </svg>
   );
 }

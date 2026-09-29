@@ -15,7 +15,7 @@ import { Pricing } from "@/components/Pricing";
 import { SecuritySection } from "@/components/SecuritySection";
 import { TradingStrategies } from "@/components/TradingStrategies";
 
-export default function Home() {
+export function HomePage() {
   return (
     <>
       <Navbar />

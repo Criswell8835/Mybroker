@@ -1,4 +1,3 @@
-"use client";
 
 import { Reveal } from "@/components/Reveal";
 import { copyTradingSteps } from "@/lib/traders";

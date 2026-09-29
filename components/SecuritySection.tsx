@@ -1,4 +1,3 @@
-"use client";
 
 import { Reveal } from "@/components/Reveal";
 import { BRAND_NAME } from "@/lib/brand";

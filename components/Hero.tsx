@@ -1,6 +1,5 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { HeroAtmosphere } from "@/components/HeroAtmosphere";
 import { HeroProductStage } from "@/components/HeroProductStage";
 import { APP_ROUTE } from "@/lib/brand";
@@ -23,10 +22,10 @@ export function Hero() {
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href={APP_ROUTE} className="btn-primary w-full sm:w-auto">
+          <Link to={APP_ROUTE} className="btn-primary w-full sm:w-auto">
             Start Trading
             <ArrowRight size={14} />
-          </a>
+          </Link>
           <a href="#copy-trading" className="btn-secondary w-full sm:w-auto">
             Explore Copy Trading
             <ArrowRight size={14} />
