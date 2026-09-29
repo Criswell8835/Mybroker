@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import { CandlestickChart } from "@/components/CandlestickChart";
-import { DemoBadge } from "@/components/DemoBadge";
 import { FloatingMetric } from "@/components/FloatingMetric";
 import { cn } from "@/lib/cn";
 import {
@@ -82,7 +81,6 @@ export function CryptoMarketVisualization() {
               <span className="hidden text-[11px] tracking-[0.16em] text-zinc-600 sm:inline">
                 1H
               </span>
-              <DemoBadge />
             </div>
           </div>
 

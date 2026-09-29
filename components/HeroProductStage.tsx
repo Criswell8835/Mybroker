@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { CandlestickChart } from "@/components/CandlestickChart";
-import { DemoBadge } from "@/components/DemoBadge";
 import { MiniSpark } from "@/components/MiniSpark";
 import { cn } from "@/lib/cn";
 import {
@@ -14,7 +13,6 @@ import {
   marketAssets,
   sparklineSets,
 } from "@/lib/market-data";
-import { SAMPLE_PROFILE_LABEL, sampleTraders } from "@/lib/traders";
 
 const pairs = marketAssets.filter((asset) =>
   ["btc", "eth", "sol"].includes(asset.id),
@@ -32,8 +30,6 @@ export function HeroProductStage() {
   const btc = marketAssets[0];
   const eth = marketAssets[1];
   const sol = marketAssets[2];
-  const lead = sampleTraders[0];
-
   return (
     <div className="relative mx-auto max-w-[1180px]">
       <AssetCard
@@ -67,10 +63,6 @@ export function HeroProductStage() {
         floatClass="float-slowest"
       />
       <CopyCard
-        name={lead.name}
-        strategy={lead.strategy}
-        performance={formatChange(lead.performance)}
-        risk={lead.risk}
         className="hidden xl:block right-0 bottom-6"
         delay={0.56}
         reduce={reduce}
@@ -111,7 +103,6 @@ export function HeroProductStage() {
               <span className="hidden text-[11px] tracking-[0.16em] text-zinc-600 sm:inline">
                 1H
               </span>
-              <DemoBadge />
             </div>
           </div>
 
@@ -201,15 +192,7 @@ export function HeroProductStage() {
           delay={0}
           reduce
         />
-        <CopyCard
-          name={lead.name}
-          strategy={lead.strategy}
-          performance={formatChange(lead.performance)}
-          risk={lead.risk}
-          className="relative"
-          delay={0}
-          reduce
-        />
+        <CopyCard className="relative" delay={0} reduce />
       </div>
     </div>
   );
@@ -256,7 +239,6 @@ function AssetCard({
     >
       <div className="flex items-center justify-between gap-3">
         <p className="text-[11px] tracking-[0.16em] text-zinc-400">{pair}</p>
-        <DemoBadge />
       </div>
       <p className="mt-2 text-[20px] tracking-[-0.03em] text-white">{price}</p>
       <p className="mt-1 text-[12px] text-orange">{change}</p>
@@ -268,18 +250,10 @@ function AssetCard({
 }
 
 function CopyCard({
-  name,
-  strategy,
-  performance,
-  risk,
   className,
   delay,
   reduce,
 }: {
-  name: string;
-  strategy: string;
-  performance: string;
-  risk: string;
   className?: string;
   delay: number;
   reduce?: boolean | null;
@@ -296,15 +270,11 @@ function CopyCard({
       )}
     >
       <p className="text-[10px] tracking-[0.18em] text-zinc-500">COPY TRADING</p>
-      <p className="mt-2 text-[14px] text-white">{name}</p>
-      <p className="mt-0.5 text-[12px] text-zinc-500">{strategy}</p>
-      <div className="mt-3 flex items-end justify-between">
-        <span className="text-[18px] tracking-[-0.03em] text-orange">
-          {performance}
-        </span>
-        <span className="text-[11px] text-zinc-500">Risk · {risk}</span>
-      </div>
-      <DemoBadge className="mt-3">{SAMPLE_PROFILE_LABEL}</DemoBadge>
+      <p className="mt-2 text-[14px] text-white">Strategy marketplace</p>
+      <p className="mt-0.5 text-[12px] text-zinc-500">Compare risk and exposure</p>
+      <p className="mt-3 text-[11px] tracking-[0.08em] text-zinc-500">
+        Discover · Compare · Follow
+      </p>
     </motion.div>
   );
 }

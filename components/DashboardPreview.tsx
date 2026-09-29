@@ -93,7 +93,6 @@ export function DashboardPreview() {
                       </p>
                     </div>
                     <div className="flex flex-col items-end gap-3">
-                      <DemoBadge>DEMO / SAMPLE DATA</DemoBadge>
                       <RangeTabs
                         value={range}
                         options={ranges}
@@ -124,7 +123,7 @@ export function DashboardPreview() {
                         <p className="text-[10px] tracking-[0.18em] text-zinc-500">
                           PORTFOLIO PERFORMANCE
                         </p>
-                        <p className="text-[10px] text-zinc-600">{range} · demo</p>
+                        <p className="text-[10px] text-zinc-600">{range}</p>
                       </div>
                       <div className="mt-2 h-[180px] sm:h-[210px]">
                         <PerformanceChart values={equity} idPrefix={`eq-${range}`} />
@@ -237,7 +236,7 @@ export function DashboardPreview() {
                           COPY ACTIVITY
                         </p>
                         <p className="mt-1 text-[12px] text-zinc-400">
-                          Sample follow: Alex Morgan · Momentum Strategy.
+                          Strategy comparison saved.
                         </p>
                       </div>
                     </div>

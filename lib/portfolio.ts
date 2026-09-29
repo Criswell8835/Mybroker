@@ -25,7 +25,7 @@ export const portfolioDemo = {
     { name: "Other", pct: 2 },
   ],
   activity: [
-    { time: "08:12", title: "Copy allocation reviewed", detail: "Sample · Alex Morgan" },
+    { time: "08:12", title: "Copy allocation reviewed", detail: "Strategy marketplace" },
     { time: "07:44", title: "Watchlist updated", detail: "ETH/USD added to desk" },
     { time: "07:02", title: "AI market readout", detail: "Momentum constructive" },
   ],
