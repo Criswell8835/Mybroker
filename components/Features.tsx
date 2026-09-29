@@ -1,10 +1,8 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
-import { DemoBadge } from "@/components/DemoBadge";
 import { MiniSpark } from "@/components/MiniSpark";
 import { formatChange, formatPrice, marketAssets, sparklineSets, aiAnalysis } from "@/lib/market-data";
-import { SAMPLE_PROFILE_LABEL, sampleTraders } from "@/lib/traders";
 import { portfolioDemo } from "@/lib/portfolio";
 import { cn } from "@/lib/cn";
 
@@ -58,7 +56,6 @@ export function Features() {
                     <p className="text-[12px] text-orange">
                       {formatChange(btc.change24h)}
                     </p>
-                    <DemoBadge className="mt-1" />
                   </div>
                 </div>
                 <div className="h-[118px] px-3 pt-3">
@@ -92,27 +89,21 @@ export function Features() {
                 Discover. Review. Follow.
               </h3>
               <p className="mt-2 text-[13px] leading-6 text-zinc-400">
-                Sample strategies with risk context — never presented as live
-                performance.
+                Compare strategy categories and risk context before you follow
+                an approach.
               </p>
               <div className="mt-5 space-y-3">
-                {sampleTraders.map((trader) => (
+                {[
+                  ["Momentum", "Majors · Moderate"],
+                  ["Trend following", "Large cap · Moderate"],
+                  ["Relative value", "Cross-market · Low"],
+                ].map(([name, detail]) => (
                   <div
-                    key={trader.id}
+                    key={name}
                     className="flex items-center justify-between rounded-xl border border-white/[0.06] bg-black/30 px-4 py-3"
                   >
-                    <div>
-                      <p className="text-[13px] text-white">{trader.name}</p>
-                      <p className="mt-0.5 text-[11px] text-zinc-500">
-                        {trader.strategy} · Risk {trader.risk}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-[13px] text-orange">
-                        {formatChange(trader.performance)}
-                      </p>
-                      <DemoBadge className="mt-1">{SAMPLE_PROFILE_LABEL}</DemoBadge>
-                    </div>
+                    <p className="text-[13px] text-white">{name}</p>
+                    <p className="text-[11px] text-zinc-500">{detail}</p>
                   </div>
                 ))}
               </div>
@@ -177,7 +168,6 @@ export function Features() {
                   Allocation, exposure and performance presented with the same
                   restraint as a private-bank desk.
                 </p>
-                <DemoBadge className="mt-5" />
               </div>
               <ul className="min-w-0 flex-1 space-y-3">
                 {portfolioDemo.allocation.map((item) => (

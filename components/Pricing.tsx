@@ -162,12 +162,8 @@ function PlanCard({
       <a
         href={APP_ROUTE}
         className={cn(
-          "mt-7 flex h-11 items-center justify-center rounded-md text-[13px] tracking-[0.02em] transition-[filter,transform,background-color,border-color] duration-300 hover:-translate-y-px",
-          plan.id === "pro"
-            ? "bg-orange text-white shadow-[0_8px_22px_rgba(232,92,36,0.22)] hover:brightness-110"
-            : plan.id === "advanced"
-              ? "border border-white/14 bg-white/[0.04] text-white hover:bg-white/[0.07]"
-              : "border border-white/12 text-white hover:bg-white/[0.04]",
+          "mt-7 w-full",
+          plan.id === "pro" ? "btn-primary" : "btn-secondary",
         )}
       >
         {plan.cta}

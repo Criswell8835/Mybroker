@@ -2,7 +2,6 @@
 
 import { ArrowRight } from "lucide-react";
 import { CandlestickChart } from "@/components/CandlestickChart";
-import { DemoBadge } from "@/components/DemoBadge";
 import { Reveal } from "@/components/Reveal";
 import {
   aiAnalysis,
@@ -65,7 +64,6 @@ export function AITradingSection() {
                   </span>
                 </div>
               </div>
-              <DemoBadge />
             </div>
 
             <div className="h-[228px] px-2 pt-3 sm:h-[268px]">

@@ -1,7 +1,6 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
-import { DemoBadge } from "@/components/DemoBadge";
 import { cn } from "@/lib/cn";
 import {
   DEMO_DISCLAIMER,
@@ -53,7 +52,6 @@ export function CryptoMarkets() {
               Explore the crypto market.
             </h2>
           </div>
-          <DemoBadge />
         </Reveal>
 
         <Reveal delay={0.08}>
@@ -63,7 +61,7 @@ export function CryptoMarkets() {
                 MARKET TERMINAL
               </p>
               <p className="font-mono text-[10px] tracking-[0.12em] text-zinc-600">
-                SPOT · DEMO
+                SPOT
               </p>
             </div>
             <div className="overflow-x-auto">

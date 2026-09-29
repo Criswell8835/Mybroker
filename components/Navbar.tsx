@@ -67,10 +67,7 @@ export function Navbar() {
             >
               Log In
             </a>
-            <a
-              href={APP_ROUTE}
-              className="ml-1 inline-flex h-8 items-center rounded-md bg-orange px-3.5 text-[12px] font-medium tracking-[0.03em] text-white transition-[filter,box-shadow,transform] duration-300 hover:-translate-y-px hover:brightness-110 hover:shadow-[0_8px_20px_rgba(232,92,36,0.28)]"
-            >
+            <a href={APP_ROUTE} className="btn-primary btn-compact ml-1">
               Start Trading
             </a>
           </div>
