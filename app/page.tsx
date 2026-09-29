@@ -3,8 +3,10 @@ import { CopyTradingSection } from "@/components/CopyTradingSection";
 import { CopyTradingSteps } from "@/components/CopyTradingSteps";
 import { CryptoMarkets } from "@/components/CryptoMarkets";
 import { DashboardPreview } from "@/components/DashboardPreview";
+import { Faq } from "@/components/Faq";
 import { Features } from "@/components/Features";
 import { FinalCTA } from "@/components/FinalCTA";
+import { FloatingActivityNotification } from "@/components/FloatingActivityNotification";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { MarketTicker } from "@/components/MarketTicker";
@@ -17,7 +19,8 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <FloatingActivityNotification />
+      <main className="overflow-x-hidden">
         <Hero />
         <MarketTicker />
         <AITradingSection />
@@ -29,6 +32,7 @@ export default function Home() {
         <Features />
         <SecuritySection />
         <Pricing />
+        <Faq />
         <FinalCTA />
       </main>
       <Footer />

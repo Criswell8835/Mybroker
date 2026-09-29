@@ -1,4 +1,5 @@
 import { Logo } from "@/components/Logo";
+import { BRAND_NAME } from "@/lib/brand";
 
 const columns = [
   {
@@ -73,7 +74,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col justify-between gap-3 border-t border-white/8 pt-6 text-[12px] text-zinc-600 sm:flex-row">
-          <p>© {new Date().getFullYear()} KAIVO. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.</p>
           <p className="max-w-xl sm:text-right">
             Crypto assets are volatile. You can lose money. Nothing on this
             homepage is an offer, solicitation, or performance guarantee.

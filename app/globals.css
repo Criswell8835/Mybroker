@@ -9,10 +9,14 @@
   --line-strong: rgba(255, 255, 255, 0.14);
   --surface: rgba(255, 255, 255, 0.03);
   --surface-strong: rgba(255, 255, 255, 0.055);
+  --orange: #e85c24;
+  --orange-soft: #f07832;
+  --orange-deep: #c44a1a;
+  --orange-glow: rgba(232, 92, 36, 0.28);
   --crimson: #c8102e;
   --crimson-soft: #a10e26;
-  --crimson-glow: rgba(200, 16, 46, 0.22);
-  --positive: #d4d4d8;
+  --crimson-glow: rgba(200, 16, 46, 0.18);
+  --positive: #e85c24;
   --negative: #c8102e;
 }
 
@@ -20,6 +24,9 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
+  --color-orange: var(--orange);
+  --color-orange-soft: var(--orange-soft);
+  --color-orange-deep: var(--orange-deep);
   --color-crimson: var(--crimson);
   --color-crimson-soft: var(--crimson-soft);
   --font-sans: var(--font-geist-sans);
@@ -54,12 +61,12 @@ body {
 }
 
 ::selection {
-  background: rgba(200, 16, 46, 0.35);
+  background: rgba(232, 92, 36, 0.32);
   color: #fff;
 }
 
 :focus-visible {
-  outline: 1px solid rgba(200, 16, 46, 0.8);
+  outline: 1px solid rgba(232, 92, 36, 0.75);
   outline-offset: 3px;
 }
 
@@ -102,41 +109,72 @@ body {
 }
 
 .glass-strong {
-  background: rgba(8, 8, 8, 0.78);
+  background: rgba(12, 12, 12, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 18px 48px rgba(0, 0, 0, 0.48),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(24px);
+  backdrop-filter: blur(16px);
+}
+
+.product-chip {
+  background: rgba(14, 14, 14, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+}
+
+.card-lift {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.13);
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(232, 92, 36, 0.08);
 }
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   height: 44px;
   padding: 0 22px;
   border-radius: 8px;
-  background: var(--crimson);
+  background: linear-gradient(180deg, var(--orange-soft) 0%, var(--orange) 100%);
   color: #fff;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.01em;
+  box-shadow:
+    0 8px 24px rgba(232, 92, 36, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
   transition:
     background 0.28s ease,
     box-shadow 0.28s ease,
-    transform 0.28s ease;
+    transform 0.28s ease,
+    filter 0.28s ease;
 }
 
 .btn-primary:hover {
-  background: var(--crimson-soft);
-  box-shadow: 0 10px 28px rgba(200, 16, 46, 0.16);
+  filter: brightness(1.07);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(232, 92, 36, 0.3);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   height: 44px;
   padding: 0 22px;
   border-radius: 8px;
@@ -148,13 +186,15 @@ body {
   transition:
     background 0.28s ease,
     border-color 0.28s ease,
-    color 0.28s ease;
+    color 0.28s ease,
+    transform 0.28s ease;
 }
 
 .btn-secondary:hover {
   border-color: rgba(255, 255, 255, 0.22);
   background: rgba(255, 255, 255, 0.035);
   color: #fff;
+  transform: translateY(-1px);
 }
 
 .ambient {
@@ -244,4 +284,60 @@ body {
 
 .hairline-grow {
   animation: hairline 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbit-slow,
+.orbit-slower,
+.orbit-drift {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.orbit-slow {
+  animation: orbit 96s linear infinite;
+}
+
+.orbit-slower {
+  animation: orbit 148s linear infinite reverse;
+}
+
+.orbit-drift {
+  animation: orbit 210s linear infinite;
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.glow-breathe {
+  animation: glow-breathe 9s ease-in-out infinite;
+}
+
+@keyframes particle-drift {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.particle-drift {
+  animation: particle-drift 6.5s ease-in-out infinite;
 }

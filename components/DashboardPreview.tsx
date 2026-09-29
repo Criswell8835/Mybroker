@@ -9,6 +9,7 @@ import {
 } from "@/components/PerformanceChart";
 import { Reveal } from "@/components/Reveal";
 import { formatPrice } from "@/lib/market-data";
+import { APP_HOST_PREVIEW, BRAND_NAME } from "@/lib/brand";
 import {
   performanceByRange,
   portfolioDemo,
@@ -28,29 +29,30 @@ export function DashboardPreview() {
           <p className="text-[11px] tracking-[0.28em] text-zinc-500">
             PLATFORM PREVIEW
           </p>
-          <h2 className="mt-5 text-[34px] font-normal leading-[1.08] tracking-[-0.04em] text-white sm:text-[46px]">
+          <h2 className="mt-5 text-[34px] font-normal leading-[1.06] tracking-[-0.045em] text-white sm:text-[46px]">
             One workspace for intelligence and copy trading.
           </h2>
         </Reveal>
 
         <Reveal delay={0.08}>
           <div className="relative">
-            <div className="ambient left-1/2 top-8 h-[240px] w-[480px] -translate-x-1/2 bg-[rgba(200,16,46,0.08)]" />
-            <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#090909] shadow-[0_40px_120px_rgba(0,0,0,0.5)]">
+            <div className="ambient left-1/2 top-8 h-[240px] w-[480px] -translate-x-1/2 bg-[rgba(232,92,36,0.1)]" />
+            <div className="relative overflow-hidden rounded-[18px] border border-white/[0.08] bg-[#090909] shadow-[0_40px_120px_rgba(0,0,0,0.5)]">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange/35 to-transparent" />
               <div className="flex items-center gap-2 border-b border-white/[0.06] bg-[#0c0c0c] px-4 py-2.5">
                 <span className="h-2 w-2 rounded-full bg-white/12" />
                 <span className="h-2 w-2 rounded-full bg-white/12" />
                 <span className="h-2 w-2 rounded-full bg-white/12" />
                 <div className="ml-3 flex-1 text-center font-mono text-[10px] tracking-[0.16em] text-zinc-600">
-                  app.kaivo.trade
+                  {APP_HOST_PREVIEW}
                 </div>
                 <DemoBadge>PRODUCT PREVIEW</DemoBadge>
               </div>
 
               <div className="grid lg:grid-cols-[168px_minmax(0,1fr)]">
                 <aside className="hidden border-r border-white/[0.06] p-5 lg:block">
-                  <p className="text-[10px] tracking-[0.22em] text-zinc-600">
-                    KAIVO
+                  <p className="text-[10px] tracking-[0.18em] text-zinc-600">
+                    {BRAND_NAME}
                   </p>
                   <nav className="mt-7 space-y-0.5 text-[13px]">
                     {["Overview", "Markets", "AI Desk", "Copy", "Analytics"].map(
@@ -59,7 +61,7 @@ export function DashboardPreview() {
                           key={item}
                           className={`px-2.5 py-2 ${
                             index === 0
-                              ? "border-l border-crimson text-white"
+                              ? "border-l border-orange text-white"
                               : "border-l border-transparent text-zinc-500"
                           }`}
                         >
@@ -78,7 +80,7 @@ export function DashboardPreview() {
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div>
                       <p className="text-[10px] tracking-[0.2em] text-zinc-500">
-                        TOTAL PORTFOLIO VALUE
+                        TOTAL PORTFOLIO
                       </p>
                       <p className="mt-2 text-[34px] font-normal tracking-[-0.04em] text-white sm:text-[42px]">
                         {formatPrice(portfolioDemo.total)}
@@ -235,7 +237,7 @@ export function DashboardPreview() {
                           COPY ACTIVITY
                         </p>
                         <p className="mt-1 text-[12px] text-zinc-400">
-                          Sample follow: Alex Morgan · Crypto Strategy.
+                          Sample follow: Alex Morgan · Momentum Strategy.
                         </p>
                       </div>
                     </div>

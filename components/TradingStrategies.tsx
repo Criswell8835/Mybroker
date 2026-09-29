@@ -40,7 +40,7 @@ export function TradingStrategies() {
 
   return (
     <section className="px-5 pb-10 sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-2xl border border-white/[0.07] bg-[#090909]">
+      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[18px] border border-white/[0.07] bg-[#0c0c0c]">
         <div className="grid lg:grid-cols-[280px_1fr]">
           <Reveal className="border-b border-white/8 p-6 lg:border-b-0 lg:border-r lg:p-8">
             <p className="text-[11px] tracking-[0.24em] text-zinc-500">
@@ -85,7 +85,12 @@ export function TradingStrategies() {
                 {current.bars.map((bar, index) => (
                   <div
                     key={`${current.id}-${index}`}
-                    className="flex-1 rounded-t-[1px] bg-white/70"
+                    className={cn(
+                      "flex-1 rounded-t-[1px]",
+                      index > current.bars.length - 3
+                        ? "bg-orange/80"
+                        : "bg-white/70",
+                    )}
                     style={{ height: `${bar}px` }}
                   />
                 ))}

@@ -22,7 +22,7 @@ export function TraderCard({
   return (
     <article
       className={cn(
-        "group relative rounded-xl border border-white/[0.07] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/12 hover:bg-white/[0.035]",
+        "card-lift group relative rounded-xl border border-white/[0.07] bg-[#0e0e0e] p-6",
         featured && "sm:p-7",
       )}
     >
@@ -32,27 +32,35 @@ export function TraderCard({
             {initials}
           </div>
           <div>
-            <h3 className="text-[15px] font-normal tracking-[-0.01em] text-white">
+            <h3 className="text-[15px] font-normal tracking-[-0.015em] text-white">
               {trader.name}
             </h3>
-            <p className="mt-0.5 text-[12px] text-zinc-500">{trader.strategy}</p>
+            <p className="mt-0.5 text-[12px] tracking-[0.01em] text-zinc-500">
+              {trader.strategy}
+            </p>
           </div>
         </div>
         <DemoBadge>{SAMPLE_PROFILE_LABEL}</DemoBadge>
       </div>
 
-      <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-white/[0.06] pt-5">
+      <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-white/[0.06] pt-5 sm:grid-cols-4">
         <div>
           <dt className="text-[10px] tracking-[0.16em] text-zinc-500">
             PERFORMANCE
           </dt>
-          <dd className="mt-1.5 text-[13px] text-white">
+          <dd className="mt-1.5 text-[13px] text-orange">
             {formatChange(trader.performance)}
           </dd>
         </div>
         <div>
           <dt className="text-[10px] tracking-[0.16em] text-zinc-500">RISK</dt>
           <dd className="mt-1.5 text-[13px] text-white">{trader.risk}</dd>
+        </div>
+        <div>
+          <dt className="text-[10px] tracking-[0.16em] text-zinc-500">
+            CONSISTENCY
+          </dt>
+          <dd className="mt-1.5 text-[13px] text-white">{trader.consistency}</dd>
         </div>
         <div>
           <dt className="text-[10px] tracking-[0.16em] text-zinc-500">

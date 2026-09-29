@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
+import { BRAND_NAME } from "@/lib/brand";
 
 const principles = [
   {
@@ -9,7 +10,7 @@ const principles = [
   },
   {
     title: "Clear risk disclosure",
-    body: "Crypto trading can result in the loss of capital. KAIVO does not promise returns, and copy trading still requires your own judgment.",
+    body: `Crypto trading can result in the loss of capital. ${BRAND_NAME} does not promise returns, and copy trading still requires your own judgment.`,
   },
   {
     title: "Account-first design",
@@ -25,7 +26,7 @@ export function SecuritySection() {
           <p className="text-[11px] tracking-[0.28em] text-zinc-500">
             TRUST
           </p>
-          <h2 className="mt-5 text-[32px] font-normal leading-[1.12] tracking-[-0.035em] text-white sm:text-[40px]">
+          <h2 className="mt-5 text-[32px] font-normal leading-[1.12] tracking-[-0.04em] text-white sm:text-[40px]">
             Built to be precise with what we claim.
           </h2>
         </Reveal>

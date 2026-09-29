@@ -1,3 +1,4 @@
+import { BRAND_NAME } from "@/lib/brand";
 import { cn } from "@/lib/cn";
 
 export function Logo({
@@ -35,9 +36,11 @@ export function Logo({
           strokeWidth="1.1"
           opacity="0.38"
         />
-        <circle cx="14" cy="14" r="2.15" fill="#C8102E" />
+        <circle cx="14" cy="14" r="2.15" fill="#E85C24" />
       </svg>
-      <span className="text-[13px] font-medium tracking-[0.28em]">KAIVO</span>
+      <span className="text-[13px] font-medium tracking-[0.16em]">
+        {BRAND_NAME}
+      </span>
     </span>
   );
 }

@@ -12,10 +12,10 @@ export const portfolioDemo = {
   exposure: "Large-cap crypto",
   updated: "09:41 UTC",
   allocation: [
-    { name: "Bitcoin", pct: 42, amount: 20282.24, tone: "rgba(244,244,245,0.92)" },
-    { name: "Ethereum", pct: 26, amount: 12555.68, tone: "rgba(244,244,245,0.58)" },
+    { name: "Bitcoin", pct: 42, amount: 20282.24, tone: "rgba(232,92,36,0.92)" },
+    { name: "Ethereum", pct: 26, amount: 12555.68, tone: "rgba(244,244,245,0.62)" },
     { name: "Solana", pct: 14, amount: 6760.75, tone: "rgba(244,244,245,0.34)" },
-    { name: "Stablecoins", pct: 12, amount: 5794.93, tone: "rgba(200,16,46,0.62)" },
+    { name: "Stablecoins", pct: 12, amount: 5794.93, tone: "rgba(200,16,46,0.55)" },
     { name: "Other Assets", pct: 6, amount: 2897.46, tone: "rgba(244,244,245,0.16)" },
   ],
   exposureBands: [

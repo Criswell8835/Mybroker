@@ -40,8 +40,8 @@ export function PerformanceChart({
     >
       <defs>
         <linearGradient id={`${idPrefix}-fill`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#C8102E" stopOpacity="0.12" />
-          <stop offset="100%" stopColor="#C8102E" stopOpacity="0" />
+          <stop offset="0%" stopColor="#E85C24" stopOpacity="0.16" />
+          <stop offset="100%" stopColor="#E85C24" stopOpacity="0" />
         </linearGradient>
       </defs>
       {layout.ticks.map((tick) => (
@@ -58,7 +58,7 @@ export function PerformanceChart({
       <path
         d={layout.line}
         fill="none"
-        stroke="rgba(244,244,245,0.82)"
+        stroke="rgba(232,92,36,0.78)"
         strokeWidth="1.4"
         className="chart-line"
         pathLength={1}

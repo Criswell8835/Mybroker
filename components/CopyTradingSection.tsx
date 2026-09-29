@@ -13,10 +13,10 @@ export function CopyTradingSection() {
     >
       <div className="mx-auto grid max-w-[1200px] gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16">
         <Reveal>
-          <p className="text-[11px] tracking-[0.28em] text-zinc-500">
+          <p className="text-[11px] tracking-[0.26em] text-zinc-500">
             COPY TRADING
           </p>
-          <h2 className="mt-5 max-w-md text-[34px] font-normal leading-[1.08] tracking-[-0.04em] text-white sm:text-[46px]">
+          <h2 className="mt-5 max-w-md text-[34px] font-normal leading-[1.06] tracking-[-0.045em] text-white sm:text-[46px]">
             Follow strategies you understand.
           </h2>
           <p className="mt-6 max-w-md text-[15px] leading-7 text-zinc-400">
@@ -33,7 +33,7 @@ export function CopyTradingSection() {
         </Reveal>
 
         <div className="relative">
-          <div className="absolute -inset-px hidden rounded-2xl bg-[radial-gradient(ellipse_at_top_right,rgba(200,16,46,0.07),transparent_48%)] lg:block" />
+          <div className="absolute -inset-px hidden rounded-2xl bg-[radial-gradient(ellipse_at_top_right,rgba(232,92,36,0.08),transparent_48%)] lg:block" />
           <div className="relative grid gap-4">
             <Reveal delay={0.08}>
               <TraderCard trader={sampleTraders[0]} featured />

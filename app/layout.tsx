@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { BRAND_NAME } from "@/lib/brand";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KAIVO — AI Crypto Trading & Copy Trading",
+  title: `${BRAND_NAME} — AI Crypto Trading & Copy Trading`,
   description:
     "AI-powered market intelligence and copy trading, built for the next generation of crypto traders.",
 };

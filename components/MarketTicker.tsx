@@ -36,7 +36,7 @@ export function MarketTicker() {
                   <span
                     className={cn(
                       "font-mono text-[12px]",
-                      up ? "text-zinc-200" : "text-crimson",
+                      up ? "text-orange" : "text-crimson",
                     )}
                   >
                     {formatChange(asset.change24h)}

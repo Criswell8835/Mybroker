@@ -30,7 +30,7 @@ function Sparkline({ values, down }: { values: number[]; down: boolean }) {
       <path
         d={d}
         fill="none"
-        stroke={down ? "#C8102E" : "rgba(244,244,245,0.7)"}
+        stroke={down ? "#C8102E" : "#E85C24"}
         strokeWidth="1.2"
       />
     </svg>
@@ -49,7 +49,7 @@ export function CryptoMarkets() {
             <p className="text-[11px] tracking-[0.28em] text-zinc-500">
               CRYPTO MARKETS
             </p>
-            <h2 className="mt-5 text-[34px] font-normal tracking-[-0.04em] text-white sm:text-[46px]">
+            <h2 className="mt-5 text-[34px] font-normal tracking-[-0.045em] text-white sm:text-[46px]">
               Explore the crypto market.
             </h2>
           </div>
@@ -57,17 +57,25 @@ export function CryptoMarkets() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <div className="mt-12 overflow-hidden rounded-xl border border-white/[0.07]">
+          <div className="mt-12 overflow-hidden rounded-[18px] border border-white/[0.07] bg-[#0c0c0c]">
+            <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-3 sm:px-6">
+              <p className="text-[10px] tracking-[0.2em] text-zinc-500">
+                MARKET TERMINAL
+              </p>
+              <p className="font-mono text-[10px] tracking-[0.12em] text-zinc-600">
+                SPOT · DEMO
+              </p>
+            </div>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[720px] border-collapse text-left">
                 <thead>
                   <tr className="border-b border-white/[0.06] text-[10px] tracking-[0.18em] text-zinc-500">
-                    <th className="px-6 py-4 font-normal">Asset</th>
-                    <th className="px-6 py-4 font-normal">Price</th>
-                    <th className="px-6 py-4 font-normal">24H</th>
-                    <th className="px-6 py-4 font-normal">Volume</th>
-                    <th className="px-6 py-4 font-normal">Market</th>
-                    <th className="px-6 py-4 font-normal">Trend</th>
+                    <th className="px-6 py-3.5 font-normal">Asset</th>
+                    <th className="px-6 py-3.5 font-normal">Price</th>
+                    <th className="px-6 py-3.5 font-normal">24H</th>
+                    <th className="px-6 py-3.5 font-normal">Volume</th>
+                    <th className="px-6 py-3.5 font-normal">Market</th>
+                    <th className="px-6 py-3.5 font-normal">Trend</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -76,7 +84,7 @@ export function CryptoMarkets() {
                     return (
                       <tr
                         key={asset.id}
-                        className="border-b border-white/[0.045] transition-colors duration-300 hover:bg-white/[0.025]"
+                        className="border-b border-white/[0.045] transition-colors duration-300 hover:bg-white/[0.03]"
                       >
                         <td className="px-6 py-5">
                           <div className="flex items-center gap-3.5">
@@ -97,7 +105,7 @@ export function CryptoMarkets() {
                         <td
                           className={cn(
                             "px-6 py-5 font-mono text-[13px]",
-                            down ? "text-crimson" : "text-zinc-300",
+                            down ? "text-crimson" : "text-orange",
                           )}
                         >
                           {formatChange(asset.change24h)}
