@@ -1,9 +1,7 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { MiniSpark } from "@/components/MiniSpark";
 import { Reveal } from "@/components/Reveal";
-import { APP_ROUTE } from "@/lib/brand";
 import { cn } from "@/lib/cn";
 
 const categories = [
@@ -48,10 +46,10 @@ export function CopyTradingSection() {
             Discover professional traders, compare their strategies, and explore
             approaches that match your preferred risk profile.
           </p>
-          <a href={APP_ROUTE} className="btn-primary mt-9 w-full sm:w-auto">
+          <Link to="/signup" className="btn-primary mt-9 w-full sm:w-auto">
             Explore Professional Traders
             <ArrowRight size={14} />
-          </a>
+          </Link>
         </Reveal>
 
         <Reveal delay={0.08}>

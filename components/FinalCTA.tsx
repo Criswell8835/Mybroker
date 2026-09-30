@@ -1,7 +1,5 @@
-"use client";
-
+import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
-import { APP_ROUTE } from "@/lib/brand";
 
 export function FinalCTA() {
   return (
@@ -24,9 +22,9 @@ export function FinalCTA() {
             platform.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href={APP_ROUTE} className="btn-primary w-full sm:w-auto">
+            <Link to="/signup" className="btn-primary w-full sm:w-auto">
               Start Trading
-            </a>
+            </Link>
             <a href="#copy-trading" className="btn-secondary w-full sm:w-auto">
               Explore Copy Trading
             </a>

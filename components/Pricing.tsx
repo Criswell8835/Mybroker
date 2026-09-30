@@ -1,6 +1,5 @@
-"use client";
-
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
 import { APP_ROUTE } from "@/lib/brand";
 import { cn } from "@/lib/cn";
@@ -159,15 +158,15 @@ function PlanCard({
         <span className="mb-1.5 text-[13px] text-zinc-500">/{period}</span>
       </p>
 
-      <a
-        href={APP_ROUTE}
+      <Link
+        to={APP_ROUTE}
         className={cn(
           "mt-7 w-full",
           plan.id === "pro" ? "btn-primary" : "btn-secondary",
         )}
       >
         {plan.cta}
-      </a>
+      </Link>
 
       <ul className="mt-8 flex-1 space-y-1 border-t border-white/[0.06] pt-5 text-[13px] leading-6 text-zinc-400">
         {plan.features.map((feature) => (

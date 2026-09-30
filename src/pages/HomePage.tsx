@@ -12,10 +12,11 @@ import { Hero } from "@/components/Hero";
 import { MarketTicker } from "@/components/MarketTicker";
 import { Navbar } from "@/components/Navbar";
 import { Pricing } from "@/components/Pricing";
+import { Reviews } from "@/components/Reviews";
 import { SecuritySection } from "@/components/SecuritySection";
 import { TradingStrategies } from "@/components/TradingStrategies";
 
-export default function Home() {
+export function HomePage() {
   return (
     <>
       <Navbar />
@@ -32,6 +33,7 @@ export default function Home() {
         <Features />
         <SecuritySection />
         <Pricing />
+        <Reviews />
         <Faq />
         <FinalCTA />
       </main>
