@@ -417,3 +417,60 @@ body {
 .particle-drift {
   animation: particle-drift 6.5s ease-in-out infinite;
 }
+
+.signup-password {
+  padding-left: 1rem;
+  padding-right: 3.5rem;
+}
+
+.signup-password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.55rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #71717a;
+  cursor: pointer;
+}
+
+.reviews-rail {
+  scrollbar-width: none;
+}
+
+.reviews-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.review-dialog-layer {
+  animation: review-fade 160ms ease;
+}
+
+.review-dialog-panel {
+  animation: review-rise 180ms ease;
+}
+
+@keyframes review-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes review-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
