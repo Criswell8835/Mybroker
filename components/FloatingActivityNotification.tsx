@@ -72,7 +72,7 @@ export function FloatingActivityNotification() {
   if (!event) return null;
 
   const reduce = prefersReducedMotion === true;
-  const duration = reduce ? 0.2 : 0.55;
+  const duration = reduce ? 0.12 : 0.22;
 
   return (
     <div className="pointer-events-none fixed bottom-5 left-4 right-4 z-30 sm:bottom-8 sm:left-8 sm:right-auto sm:w-[480px] lg:w-[520px]">
@@ -83,23 +83,11 @@ export function FloatingActivityNotification() {
             role="status"
             aria-live="polite"
             aria-atomic="true"
-            initial={
-              reduce
-                ? { opacity: 0 }
-                : { opacity: 0, y: 16, filter: "blur(6px)" }
-            }
-            animate={
-              reduce
-                ? { opacity: 1 }
-                : { opacity: 1, y: 0, filter: "blur(0px)" }
-            }
-            exit={
-              reduce
-                ? { opacity: 0 }
-                : { opacity: 0, y: 12, filter: "blur(4px)" }
-            }
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 8 }}
+            animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, y: 6 }}
             transition={{ duration, ease }}
-            className="pointer-events-auto w-full rounded-[20px] border border-white/[0.08] bg-[#0b0b0b]/82 px-5 py-4 shadow-[0_22px_50px_rgba(0,0,0,0.48)] backdrop-blur-2xl sm:px-6 sm:py-5"
+            className="pointer-events-auto w-full rounded-[20px] border border-white/[0.08] bg-[#0b0b0b]/92 px-5 py-4 shadow-[0_22px_50px_rgba(0,0,0,0.48)] sm:px-6 sm:py-5"
           >
             <div className="flex items-start gap-3">
               <span

@@ -2,7 +2,6 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { HeroAtmosphere } from "@/components/HeroAtmosphere";
 import { HeroProductStage } from "@/components/HeroProductStage";
-import { APP_ROUTE } from "@/lib/brand";
 
 export function Hero() {
   return (
@@ -21,15 +20,11 @@ export function Hero() {
           generation of crypto traders.
         </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link to={APP_ROUTE} className="btn-primary w-full sm:w-auto">
+        <div className="mt-10 flex justify-center">
+          <Link to="/signup" className="btn-primary w-full sm:w-auto">
             Start Trading
             <ArrowRight size={14} />
           </Link>
-          <a href="#copy-trading" className="btn-secondary w-full sm:w-auto">
-            Explore Copy Trading
-            <ArrowRight size={14} />
-          </a>
         </div>
       </div>
 

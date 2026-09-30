@@ -26,9 +26,9 @@ export function FloatingMetric({
         !reduce && floatClassName,
         className,
       )}
-      initial={reduce ? false : { opacity: 0.96, y: 10 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={reduce ? false : { opacity: 0.96, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       <p className="text-[10px] tracking-[0.18em] text-zinc-500">
         {label}
