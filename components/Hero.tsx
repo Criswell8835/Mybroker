@@ -9,20 +9,24 @@ export function Hero() {
       <HeroAtmosphere />
 
       <div className="relative z-10 mx-auto max-w-[1120px] px-5 text-center sm:px-8">
-        <h1 className="mx-auto max-w-[860px] text-[44px] font-normal leading-[0.98] tracking-[-0.048em] text-white sm:text-[70px] lg:text-[84px]">
-          Trade Crypto.
+        <h1 className="mx-auto max-w-[920px] text-[44px] font-normal leading-[0.98] tracking-[-0.048em] text-white sm:text-[70px] lg:text-[84px]">
+          Trade With Precision.
           <br />
-          Think Smarter.
+          Move With the Market.
         </h1>
 
-        <p className="mx-auto mt-7 max-w-[440px] text-[15px] leading-[1.7] text-zinc-400 sm:mt-8 sm:text-[16px]">
-          AI-powered market intelligence and copy trading, built for the next
-          generation of crypto traders.
+        <p className="mx-auto mt-7 max-w-[520px] text-[15px] leading-[1.7] text-zinc-400 sm:mt-8 sm:text-[16px]">
+          A crypto trading platform for market access, AI-assisted strategies,
+          copy trading, portfolio management, and market intelligence.
         </p>
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link to="/signup" className="btn-primary w-full sm:w-auto">
-            Start Trading
+            Create Account
+            <ArrowRight size={14} />
+          </Link>
+          <Link to="/markets" className="btn-secondary w-full sm:w-auto">
+            Explore Markets
             <ArrowRight size={14} />
           </Link>
         </div>

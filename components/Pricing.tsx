@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
-import { APP_ROUTE } from "@/lib/brand";
 import { cn } from "@/lib/cn";
 import {
   comparisonGroups,
@@ -24,11 +23,11 @@ export function Pricing() {
         <Reveal className="max-w-2xl">
           <p className="text-[11px] tracking-[0.26em] text-zinc-500">PRICING</p>
           <h2 className="mt-5 text-[34px] font-normal leading-[1.06] tracking-[-0.045em] text-white sm:text-[46px]">
-            Choose your level of intelligence.
+            Choose your level of access.
           </h2>
           <p className="mt-5 max-w-lg text-[15px] leading-7 text-zinc-400">
-            Start with the essentials. Upgrade when you need deeper market
-            intelligence, analytics, and control.
+            Free, Pro, and Advanced. Selecting a plan opens account creation.
+            Payment processing is not part of this preview.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -159,7 +158,7 @@ function PlanCard({
       </p>
 
       <Link
-        to={APP_ROUTE}
+        to="/signup"
         className={cn(
           "mt-7 w-full",
           plan.id === "pro" ? "btn-primary" : "btn-secondary",

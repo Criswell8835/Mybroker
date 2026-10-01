@@ -438,6 +438,20 @@ body {
   }
 }
 
+.country-menu {
+  scrollbar-color: rgba(232, 92, 36, 0.45) transparent;
+  scrollbar-width: thin;
+}
+
+.country-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.country-menu::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(232, 92, 36, 0.45);
+}
+
 .signup-password {
   padding-left: 1rem;
   padding-right: 3.5rem;
@@ -465,6 +479,123 @@ body {
 
 .reviews-rail::-webkit-scrollbar {
   display: none;
+}
+
+.nav-panel {
+  animation: review-fade 160ms ease;
+}
+
+.desk-drawer {
+  animation: desk-drawer-in 180ms ease;
+}
+
+.desk-modal {
+  animation: review-rise 160ms ease;
+}
+
+.desk-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: #e4e4e7;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  transition:
+    border-color 140ms ease,
+    background-color 140ms ease,
+    color 140ms ease;
+}
+
+.desk-action:hover {
+  border-color: rgba(232, 92, 36, 0.45);
+  color: #fff;
+}
+
+.desk-action:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.desk-action-buy {
+  border-color: rgba(232, 92, 36, 0.55);
+  background: rgba(232, 92, 36, 0.14);
+  color: #fff;
+}
+
+.desk-action-sell {
+  border-color: rgba(200, 16, 46, 0.5);
+  background: rgba(200, 16, 46, 0.12);
+  color: #fff;
+}
+
+.desk-field {
+  width: 100%;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.28);
+  padding: 0 10px;
+  color: #f4f4f5;
+  font-size: 13px;
+  outline: none;
+}
+
+.desk-field:focus {
+  border-color: rgba(232, 92, 36, 0.55);
+}
+
+textarea.desk-field {
+  height: auto;
+  min-height: 7rem;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.desk-card {
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .desk-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(232, 92, 36, 0.28);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  }
+}
+
+@keyframes desk-drawer-in {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.testimonial-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: testimonial-marquee 56s linear infinite;
+}
+
+@keyframes testimonial-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .review-dialog-layer {

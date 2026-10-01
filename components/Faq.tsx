@@ -25,8 +25,8 @@ export function Faq() {
             Questions, answered.
           </h2>
           <p className="mt-5 text-[15px] leading-7 text-zinc-400">
-            Everything you need to know about the platform, AI Trading, Copy
-            Trading, funding, and withdrawals.
+            Straightforward answers about the platform, AI Trading, and Copy
+            Trading.
           </p>
         </Reveal>
 

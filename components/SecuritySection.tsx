@@ -5,7 +5,7 @@ import { BRAND_NAME } from "@/lib/brand";
 const principles = [
   {
     title: "Transparent information",
-    body: "Market figures and trader profiles on this homepage are labeled as demonstration or sample content. Nothing here is presented as live execution.",
+    body: "Market figures on this site are labeled as demonstration or sample content. Nothing here is presented as live execution.",
   },
   {
     title: "Clear risk disclosure",

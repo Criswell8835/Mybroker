@@ -1,7 +1,12 @@
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useState, type FormEvent } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Eye, EyeOff } from "lucide-react";
+import { PasswordField } from "@/components/PasswordField";
+import { PublicShell } from "@/components/PublicShell";
+import { loginErrorMessage } from "@/src/lib/auth-messages";
 import { supabase } from "@/src/lib/supabase";
+
+const fieldClass =
+  "mt-2 w-full rounded-full border border-white/10 bg-white/[0.03] px-4 py-3 text-zinc-100 outline-none";
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -11,145 +16,104 @@ export function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
+  const [resetting, setResetting] = useState(false);
 
   async function onSubmit(event: FormEvent) {
     event.preventDefault();
+    if (pending) return;
     setPending(true);
     setError(null);
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email: email.trim(),
-      password,
+    setNotice(null);
+    try {
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
+      if (signInError) {
+        setError(loginErrorMessage(signInError));
+        return;
+      }
+      navigate(next, { replace: true });
+    } catch {
+      setError("Could not reach the account service. Try again.");
+    } finally {
+      setPending(false);
+    }
+  }
+
+  async function onForgot(event: FormEvent) {
+    event.preventDefault();
+    setPending(true);
+    setError(null);
+    setNotice(null);
+    const { error: resetError } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo: `${window.location.origin}/login`,
     });
     setPending(false);
-    if (signInError) {
-      setError(signInError.message);
+    if (resetError) {
+      setError(resetError.message);
       return;
     }
-    navigate(next, { replace: true });
+    setNotice("If that email can receive mail, a reset link is on its way.");
   }
 
   return (
-    <AuthScreen
-      title="Log in"
-      error={error}
-      pending={pending}
-      submitLabel="Log in"
-      onSubmit={onSubmit}
-      email={email}
-      password={password}
-      onEmail={setEmail}
-      onPassword={setPassword}
-      footer={
-        <Link to="/signup" className="text-zinc-300">
-          Create an account
-        </Link>
-      }
-    />
-  );
-}
-
-export function AuthScreen({
-  title,
-  error,
-  pending,
-  submitLabel,
-  onSubmit,
-  email,
-  password,
-  onEmail,
-  onPassword,
-  displayName,
-  onDisplayName,
-  notice,
-  footer,
-}: {
-  title: string;
-  error: string | null;
-  pending: boolean;
-  submitLabel: string;
-  onSubmit: (event: FormEvent) => void;
-  email: string;
-  password: string;
-  onEmail: (value: string) => void;
-  onPassword: (value: string) => void;
-  displayName?: string;
-  onDisplayName?: (value: string) => void;
-  notice?: string | null;
-  footer: ReactNode;
-}) {
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const canTogglePassword = Boolean(onDisplayName);
-
-  return (
-    <main className="grid min-h-full place-items-center px-6 py-24">
-      <form onSubmit={onSubmit} className="w-full max-w-sm">
-        <p className="text-[11px] tracking-[0.26em] text-zinc-500">{title}</p>
-        {notice ? <p className="mt-6 text-sm text-zinc-300">{notice}</p> : null}
-        {onDisplayName ? (
+    <PublicShell>
+      <section className="grid min-h-[calc(100vh-8rem)] place-items-center px-5 py-32">
+        <form
+          onSubmit={resetting ? onForgot : onSubmit}
+          className="w-full max-w-md rounded-[18px] border border-white/[0.07] bg-[#0c0c0c] px-6 py-8 sm:px-8"
+        >
+          <p className="text-[11px] tracking-[0.26em] text-zinc-500">ACCOUNT</p>
+          <h1 className="mt-4 text-[32px] font-normal tracking-[-0.04em] text-white">Log in</h1>
+          {notice ? <p className="mt-5 text-sm text-zinc-300">{notice}</p> : null}
           <label className="mt-8 block text-sm text-zinc-400">
-            Name
+            Email
             <input
-              value={displayName}
-              onChange={(event) => onDisplayName(event.target.value)}
-              autoComplete="name"
-              className="mt-2 w-full rounded-full border border-white/10 bg-white/[0.03] px-4 py-3 text-zinc-100 outline-none"
+              type="email"
+              required
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              autoComplete="email"
+              className={fieldClass}
             />
           </label>
-        ) : null}
-        <label className="mt-5 block text-sm text-zinc-400">
-          Email
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(event) => onEmail(event.target.value)}
-            autoComplete="email"
-            className="mt-2 w-full rounded-full border border-white/10 bg-white/[0.03] px-4 py-3 text-zinc-100 outline-none"
-          />
-        </label>
-        <label className="mt-5 block text-sm text-zinc-400">
-          Password
-          {canTogglePassword ? (
-            <span className="relative mt-2 block">
-              <input
-                type={passwordVisible ? "text" : "password"}
-                required
-                minLength={8}
-                value={password}
-                onChange={(event) => onPassword(event.target.value)}
-                autoComplete="new-password"
-                className="signup-password w-full rounded-full border border-white/10 bg-white/[0.03] py-3 text-zinc-100 outline-none"
-              />
-              <button
-                type="button"
-                onPointerDown={(event) => event.preventDefault()}
-                onClick={() => setPasswordVisible((visible) => !visible)}
-                aria-label={passwordVisible ? "Hide password" : "Show password"}
-                aria-pressed={passwordVisible}
-                className="signup-password-toggle"
-              >
-                {passwordVisible ? <EyeOff size={16} strokeWidth={1.5} /> : <Eye size={16} strokeWidth={1.5} />}
-              </button>
-            </span>
-          ) : (
-            <input
-              type="password"
-              required
-              minLength={8}
+          {resetting ? null : (
+            <PasswordField
+              label="Password"
+              name="password"
               value={password}
-              onChange={(event) => onPassword(event.target.value)}
+              onChange={setPassword}
               autoComplete="current-password"
-              className="mt-2 w-full rounded-full border border-white/10 bg-white/[0.03] px-4 py-3 text-zinc-100 outline-none"
             />
           )}
-        </label>
-        {error ? <p className="mt-4 text-sm text-red-300">{error}</p> : null}
-        <button className="btn-primary mt-8 w-full" type="submit" disabled={pending}>
-          {pending ? "Please wait" : submitLabel}
-        </button>
-        <p className="mt-6 text-sm text-zinc-500">{footer}</p>
-      </form>
-    </main>
+          {error ? <p className="mt-4 text-sm text-red-300">{error}</p> : null}
+          <button className="btn-primary mt-8 w-full" type="submit" disabled={pending}>
+            {pending ? (resetting ? "Please wait" : "Signing in...") : resetting ? "Send reset link" : "Log in"}
+          </button>
+          <div className="mt-6 flex flex-col gap-3 text-sm text-zinc-500">
+            <button
+              type="button"
+              className="w-fit text-left text-zinc-300"
+              onClick={() => {
+                setResetting((current) => !current);
+                setError(null);
+                setNotice(null);
+              }}
+            >
+              {resetting ? "Back to log in" : "Forgot password"}
+            </button>
+            <p>
+              New here?{" "}
+              <Link to="/signup" className="text-zinc-300">
+                Create Account
+              </Link>
+            </p>
+          </div>
+        </form>
+      </section>
+    </PublicShell>
   );
 }

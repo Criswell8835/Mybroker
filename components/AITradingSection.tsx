@@ -1,5 +1,6 @@
 
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { CandlestickChart } from "@/components/CandlestickChart";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -37,13 +38,13 @@ export function AITradingSection() {
             Analyze market conditions, identify trends and explore AI-assisted
             strategies through a powerful crypto trading interface.
           </p>
-          <a
-            href="#features"
+          <Link
+            to="/features"
             className="mt-9 inline-flex items-center gap-2 text-[13px] tracking-[0.02em] text-white transition-colors hover:text-zinc-300"
           >
             Explore AI Trading
             <ArrowRight size={14} />
-          </a>
+          </Link>
         </Reveal>
 
         <Reveal delay={0.12}>

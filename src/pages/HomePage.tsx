@@ -1,43 +1,36 @@
-import { AITradingSection } from "@/components/AITradingSection";
-import { CopyTradingSection } from "@/components/CopyTradingSection";
-import { CopyTradingSteps } from "@/components/CopyTradingSteps";
-import { CryptoMarkets } from "@/components/CryptoMarkets";
-import { DashboardPreview } from "@/components/DashboardPreview";
 import { Faq } from "@/components/Faq";
-import { Features } from "@/components/Features";
 import { FinalCTA } from "@/components/FinalCTA";
-import { FloatingActivityNotification } from "@/components/FloatingActivityNotification";
-import { Footer } from "@/components/Footer";
+import {
+  AiTradingBand,
+  CopyTradingBand,
+  MarketsBand,
+  PlatformOffer,
+  PlatformStats,
+  ProductShowcase,
+  TestimonialRail,
+  WhyPlatform,
+} from "@/components/home/HomeExperience";
 import { Hero } from "@/components/Hero";
 import { MarketTicker } from "@/components/MarketTicker";
-import { Navbar } from "@/components/Navbar";
 import { Pricing } from "@/components/Pricing";
-import { Reviews } from "@/components/Reviews";
-import { SecuritySection } from "@/components/SecuritySection";
-import { TradingStrategies } from "@/components/TradingStrategies";
+import { PublicShell } from "@/components/PublicShell";
 
 export function HomePage() {
   return (
-    <>
-      <Navbar />
-      <FloatingActivityNotification />
-      <main className="overflow-x-hidden">
-        <Hero />
-        <MarketTicker />
-        <AITradingSection />
-        <TradingStrategies />
-        <CopyTradingSection />
-        <CopyTradingSteps />
-        <CryptoMarkets />
-        <DashboardPreview />
-        <Features />
-        <SecuritySection />
-        <Pricing />
-        <Reviews />
-        <Faq />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </>
+    <PublicShell>
+      <Hero />
+      <MarketTicker />
+      <PlatformStats />
+      <PlatformOffer />
+      <WhyPlatform />
+      <ProductShowcase />
+      <AiTradingBand />
+      <CopyTradingBand />
+      <MarketsBand />
+      <TestimonialRail />
+      <Pricing />
+      <Faq />
+      <FinalCTA />
+    </PublicShell>
   );
 }
