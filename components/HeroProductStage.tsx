@@ -32,7 +32,7 @@ export function HeroProductStage() {
   return (
     <div className="relative mx-auto max-w-[1180px]">
       <AssetCard
-        pair={btc.pair}
+        pair={`${btc.symbol}/USDT`}
         price={formatPrice(btc.price)}
         change={formatChange(btc.change24h)}
         values={sparklineSets.btc}
@@ -42,7 +42,7 @@ export function HeroProductStage() {
         floatClass="float-slow"
       />
       <AssetCard
-        pair={eth.pair}
+        pair={`${eth.symbol}/USDT`}
         price={formatPrice(eth.price)}
         change={formatChange(eth.change24h)}
         values={sparklineSets.eth}
@@ -52,7 +52,7 @@ export function HeroProductStage() {
         floatClass="float-slower"
       />
       <AssetCard
-        pair={sol.pair}
+        pair={`${sol.symbol}/USDT`}
         price={formatPrice(sol.price)}
         change={formatChange(sol.change24h)}
         values={sparklineSets.sol}
@@ -91,7 +91,7 @@ export function HeroProductStage() {
                       : "text-zinc-500 hover:text-zinc-300",
                   )}
                 >
-                  {item.pair}
+                  {`${item.symbol}/USDT`}
                   {item.id === activeId ? (
                     <span className="absolute inset-x-0 -bottom-[17px] h-px bg-orange" />
                   ) : null}
@@ -110,7 +110,7 @@ export function HeroProductStage() {
               <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
                 <div>
                   <p className="text-[11px] tracking-[0.18em] text-zinc-500">
-                    {asset.pair}
+                    {`${asset.symbol}/USDT`}
                   </p>
                   <div className="mt-2 flex items-baseline gap-3">
                     <p className="text-[28px] font-normal tracking-[-0.03em] text-white sm:text-[34px]">

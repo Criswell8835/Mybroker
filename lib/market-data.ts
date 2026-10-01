@@ -168,6 +168,8 @@ export const candleSets: Record<string, Candle[]> = {
   btc: generateCandles(56, 104284.2, 2.84, 104284),
   eth: generateCandles(56, 3482.16, 1.42, 3482),
   sol: generateCandles(56, 178.4, 3.21, 1784),
+  bnb: generateCandles(56, 612.08, -0.64, 612),
+  xrp: generateCandles(56, 2.18, 0.92, 218),
 };
 
 export const sparklineSets: Record<string, number[]> = Object.fromEntries(
